@@ -1,18 +1,18 @@
-const express = require('express');
-const axios = require('axios');
-const jsonParser = require('body-parser');
-const PORT = process.env.PORT || 5000;
+var express = require('express');
+var app = express();
 
-const routes = require('./routes');
 
-const app = express();
 
-app.use(jsonParser());
+app.get('/sender', function(req, res) {
+   res.sendfile('public/send.html');
+});
 
-app.use('/form', routes);
+app.post('/form', function(req, res) {
+ console.log(req.body.id)
+ console.log(req.body.title);
+ console.log(req.body.content);
+ res.contentType('json');
+ res.send({ some: JSON.stringify({response:'json'}) });
+});
 
-app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
-})
-
-//https://git.heroku.com/frozen-dawn-92571.git
+app.listen(3000);
