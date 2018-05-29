@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
     res.send(response.data);
     return axios({
       method: 'post',
-      url: 'https://copyblondie.bubbleapps.io/version-test/test',
+      url: 'https://copyblondie.bubbleapps.io/version-test/api/1.1/wf/test/initialize',
       headers: { 'Authorization': 'Bearer oQllYgg7z1JMzqH62kqg3jI0s4ofb9Ev' },
       data: {"email": `${response.email}`}
     })
