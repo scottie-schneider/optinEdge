@@ -4,10 +4,23 @@ const axios = require('axios');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  if (req.headers['x-requested-with'] === 'XMLHttpRequest') {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify({message: 'Hello World!'}));
-  }
+  let response = {
+    formId: req.body.formId,
+    email: req.body.email
+  };
+  console.log(response.email);
+  axios({
+    method: 'post',
+    url: 'https://api.fullcontact.com/v3/person.enrich',
+    headers: { 'Authorization': 'Bearer oQllYgg7z1JMzqH62kqg3jI0s4ofb9Ev' },
+    data: {"email": "scott@warcat.co"}
+})
+  .then((response) => {
+    res.send(response.data);
+  })
+  .catch((e) => {
+    console.log(e);
+  })
 })
 
 module.exports = router;
