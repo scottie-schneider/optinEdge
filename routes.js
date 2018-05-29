@@ -4,7 +4,7 @@ const axios = require('axios');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  
+  res.send(req)
   let response = {
     formId: req.body.formId,
     email: req.body.email
