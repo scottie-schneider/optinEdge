@@ -15,16 +15,24 @@ router.post('/', (req, res) => {
     url: 'https://api.fullcontact.com/v3/person.enrich',
     headers: { 'Authorization': 'Bearer oQllYgg7z1JMzqH62kqg3jI0s4ofb9Ev' },
     data: {"email": `${response.email}`}
-})
+  })
   .then((response) => {
     res.send(response.data);
-  })
-  .then(() => {
-    console.log('to optin edge');
+    return axios({
+      method: 'post',
+      url: 'https://copyblondie.bubbleapps.io/version-test/test',
+      headers: { 'Authorization': 'Bearer oQllYgg7z1JMzqH62kqg3jI0s4ofb9Ev' },
+      data: {"email": `${response.email}`}
+    })
+    .catch((e) => {
+      console.log(e);
+    })
   })
   .catch((e) => {
     console.log(e);
   })
+
+
 })
 
 module.exports = router;
