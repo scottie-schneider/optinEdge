@@ -1,15 +1,25 @@
 const express = require('express');
+const app = express();
 const axios = require('axios');
 const jsonParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
+var path = require('path');
+app.use(express.static(path.join(__dirname)));
+app.use("/styles", express.static(__dirname + '/styles'));
+app.use("/images", express.static(__dirname + '/images'));
+app.use("/scripts", express.static(__dirname + '/scripts'));
 
 const routes = require('./routes');
 
-const app = express();
+
 
 app.use(jsonParser());
 
 app.use('/form', routes);
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
