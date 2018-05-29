@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
       method: 'post',
       url: 'https://copyblondie.bubbleapps.io/version-test/api/1.1/wf/test/initialize',
       headers: { 'Authorization': 'Bearer 98107ac3b7b363d93f1b9e3863b79bee' },
-      data: {"email": `${response}`}
+      data: response
     })
     .then((response) => {
       console.log('hi')
