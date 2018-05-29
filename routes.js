@@ -24,6 +24,9 @@ router.post('/', (req, res) => {
       headers: { 'Authorization': 'Bearer oQllYgg7z1JMzqH62kqg3jI0s4ofb9Ev' },
       data: {"email": `${response}`}
     })
+    .then((response) => {
+      console.log('hi')
+    })
     .catch((e) => {
       console.log(e);
     })
