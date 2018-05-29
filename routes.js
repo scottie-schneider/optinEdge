@@ -4,7 +4,7 @@ const axios = require('axios');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  
+
   let response = {
     formId: req.body.formId,
     email: req.body.email
@@ -18,6 +18,9 @@ router.post('/', (req, res) => {
 })
   .then((response) => {
     res.send(response.data);
+  })
+  .then(() => {
+    console.log('to optin edge');
   })
   .catch((e) => {
     console.log(e);
