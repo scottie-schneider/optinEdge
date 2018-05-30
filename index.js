@@ -46,6 +46,7 @@ app.post('/form', (req, res) => {
   })
   .then((response) => {
     res.send(data);
+    /*
     return axios({
       method: 'post',
       url: 'https://copyblondie.bubbleapps.io/version-test/api/1.1/wf/test/',
@@ -53,12 +54,14 @@ app.post('/form', (req, res) => {
       headers: { 'Authorization': 'Bearer 98107ac3b7b363d93f1b9e3863b79bee' },
       data: response.data
     })
+
     .then((response) => {
       console.log('hi')
     })
     .catch((e) => {
       console.log(e);
     })
+    */
   })
   .catch((e) => {
     res.send('There was an error')
