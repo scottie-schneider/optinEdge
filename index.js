@@ -38,7 +38,6 @@ app.post('/form', (req, res) => {
     formId: req.body.formId,
     email: req.body.email
   };
-  res.send(form.email);
   axios({
     method: 'post',
     url: 'https://api.fullcontact.com/v3/person.enrich',
@@ -62,7 +61,7 @@ app.post('/form', (req, res) => {
     })
   })
   .catch((e) => {
-    console.log(e);
+    res.send('there was an error')
   })
 
 
