@@ -34,19 +34,19 @@ app.get('/', function (req, res) {
 });
 
 app.post('/form', (req, res) => {
-  let data = {
+  let form = {
     formId: req.body.formId,
     email: req.body.email
   };
-  console.log(data.email);
+  res.send(form.email);
   axios({
     method: 'post',
     url: 'https://api.fullcontact.com/v3/person.enrich',
     headers: { 'Authorization': 'Bearer r253Ftnu1NhEhcgvmASo1qcWrfcNptPf' },
-    data: {"email": `${response.email}`}
+    data: {"email": `${form.email}`}
   })
   .then((response) => {
-    res.send(response.data);
+    res.send(data);
     return axios({
       method: 'post',
       url: 'https://copyblondie.bubbleapps.io/version-test/api/1.1/wf/test/',
