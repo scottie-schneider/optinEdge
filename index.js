@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const jsonParser = require('body-parser');
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
