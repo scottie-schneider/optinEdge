@@ -34,11 +34,11 @@ app.get('/', function (req, res) {
 });
 
 app.post('/form', (req, res) => {
-  let response = {
+  let data = {
     formId: req.body.formId,
     email: req.body.email
   };
-  console.log(response.email);
+  console.log(data.email);
   axios({
     method: 'post',
     url: 'https://api.fullcontact.com/v3/person.enrich',
