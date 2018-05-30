@@ -31,7 +31,8 @@ app.get('/', function (req, res) {
 });
 
 app.post('/form', (req, res) => {
-
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   let response = {
     formId: req.body.formId,
     email: req.body.email
