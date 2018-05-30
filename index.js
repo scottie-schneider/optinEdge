@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + 'index.html'));
 });
 
-app.post('/form', (req, res) => {
+app.post('/form', cors(), (req, res) => {
 
   let response = {
     formId: req.body.formId,
