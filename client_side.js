@@ -1,8 +1,8 @@
-let email = "2e00f211473c1a6c828a9ec22ba5950b-0";
-let fullname = "2e00f211473c1a6c828a9ec22ba5950b-1";
+let email = "e2cb1c262563bff37e1994d144478ad3-0";
+let fullname = "e2cb1c262563bff37e1994d144478ad3-1";
 
 
-//document.getElementById(email).addEventListener("change", change);
+document.getElementById(email).addEventListener("change", change);
 
 function change () {
   $.ajax({
@@ -12,7 +12,6 @@ function change () {
     contentType: 'application/json',
     data:
       {
-        //"email": "scott.schneider09@yahoo.com"
         "email": document.getElementById(email).value,
         "formId": "1234"
       },
