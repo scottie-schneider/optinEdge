@@ -61,7 +61,7 @@ app.post('/form', (req, res) => {
     })
   })
   .catch((e) => {
-    res.send(e)
+    res.send('There was an error')
   })
 
 
