@@ -3,6 +3,13 @@ const app = express();
 const axios = require('axios');
 const jsonParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var path = require('path');
 app.use(express.static(path.join(__dirname)));
 app.use("/styles", express.static(__dirname + '/styles'));
@@ -12,11 +19,7 @@ app.use("/scripts", express.static(__dirname + '/scripts'));
 const routes = require('./routes');
 
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+
 
 app.use(jsonParser());
 
