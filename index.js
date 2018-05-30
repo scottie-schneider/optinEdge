@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/form', (req, res) => {
-
+res.send('dont go nuts')
   let response = {
     formId: req.body.formId,
     email: req.body.email
