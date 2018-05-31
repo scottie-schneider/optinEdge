@@ -68,6 +68,8 @@ app.post('/form', (req, res) => {
   })
   .catch((error) => {
     // Error
+    res.send(error);
+    res.send('there was an error');
     if (error.response) {
       res.send(error.response);
         // The request was made and the server responded with a status code
