@@ -68,7 +68,7 @@ app.post('/form', (req, res) => {
   })
   .catch((error) => {
     // Error
-    res.send(error);
+    res.send(error, 'there was an error');
     res.send('there was an error');
     if (error.response) {
       res.send(error.response);
