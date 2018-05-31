@@ -42,7 +42,9 @@ app.post('/form', (req, res) => {
     method: 'post',
     url: 'https://api.fullcontact.com/v3/person.enrich',
     headers: { 'Authorization': 'Bearer r253Ftnu1NhEhcgvmASo1qcWrfcNptPf' },
-    data: {"email": `${form.email}`}
+    data: {
+      email: `${form.email}`
+    }
   })
   .then((response) => {
     res.send(data);
