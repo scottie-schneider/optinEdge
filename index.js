@@ -63,6 +63,7 @@ app.post('/form', (req, res) => {
     })
   })
   .catch(function (error) {
+    res.send('email not found')
     if (error.response) {
       console.log('error in the response')
       // The request was made and the server responded with a status code
