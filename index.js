@@ -38,10 +38,11 @@ app.post('/form', (req, res) => {
     formId: req.body.formId,
     email: req.body.email
   };
+  // Auth token for scott@warcat.co 
   axios({
     method: 'post',
     url: 'https://api.fullcontact.com/v3/person.enrich',
-    headers: { 'Authorization': 'Bearer r253Ftnu1NhEhcgvmASo1qcWrfcNptPf' },
+    headers: { 'Authorization': 'Bearer oJXYJBXBjWjo33d4zEfeAD6ZOX4iSXzE' },
     data: {
       email: `scott@warcat.co`
     }
