@@ -68,7 +68,6 @@ app.post('/form', (req, res) => {
   })
   .catch((error) => {
     // Error
-    res.send(error, 'there was an error');
     res.send('there was an error');
     if (error.response) {
       res.send(error.response);
@@ -87,7 +86,6 @@ app.post('/form', (req, res) => {
         // Something happened in setting up the request that triggered an Error
         res.send('Error', error.message);
     }
-console.log(error.config);
   })
 
 
