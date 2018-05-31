@@ -38,13 +38,13 @@ app.post('/form', (req, res) => {
     formId: req.body.formId,
     email: req.body.email
   };
-  // Auth token for scott@warcat.co 
+  // Auth token for scott@warcat.co
   axios({
-    method: 'post',
     url: 'https://api.fullcontact.com/v3/person.enrich',
+    method: 'post',
     headers: { 'Authorization': 'Bearer oJXYJBXBjWjo33d4zEfeAD6ZOX4iSXzE' },
     data: {
-      email: `scott@warcat.co`
+      email: "scott@warcat.co"
     }
   })
   .then((response) => {
@@ -66,8 +66,26 @@ app.post('/form', (req, res) => {
     })
     */
   })
-  .catch((e) => {
-    res.send('There was an error')
+  .catch((error) => {
+    // Error
+    if (error.response) {
+      res.send(error.response);
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        // console.log(error.response.data);
+        // console.log(error.response.status);
+        // console.log(error.response.headers);
+    } else if (error.request) {
+      res.send(error.request);
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log(error.request);
+    } else {
+        // Something happened in setting up the request that triggered an Error
+        res.send('Error', error.message);
+    }
+console.log(error.config);
   })
 
 
