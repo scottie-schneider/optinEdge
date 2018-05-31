@@ -43,13 +43,10 @@ app.post('/form', (req, res) => {
     url: 'https://api.fullcontact.com/v3/person.enrich',
     method: 'post',
     headers: { 'Authorization': 'Bearer oJXYJBXBjWjo33d4zEfeAD6ZOX4iSXzE' },
-    data: {
-      email: "scott@warcat.co"
-    }
+    data: {email: `${req.body.email}`}
   })
   .then((response) => {
-    res.send(data);
-    /*
+    res.send(response.data)
     return axios({
       method: 'post',
       url: 'https://copyblondie.bubbleapps.io/version-test/api/1.1/wf/test/',
@@ -64,29 +61,28 @@ app.post('/form', (req, res) => {
     .catch((e) => {
       console.log(e);
     })
-    */
   })
-  .catch((error) => {
-    // Error
-    res.send('there was an error');
+  .catch(function (error) {
     if (error.response) {
-      res.send(error.response);
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        // console.log(error.response.data);
-        // console.log(error.response.status);
-        // console.log(error.response.headers);
+      console.log('error in the response')
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
     } else if (error.request) {
-      res.send(error.request);
-        // The request was made but no response was received
-        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-        // http.ClientRequest in node.js
-        console.log(error.request);
+      // The request was made but no response was received
+      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+      // http.ClientRequest in node.js
+      console.log('error in the request')
+      console.log(error.request);
     } else {
-        // Something happened in setting up the request that triggered an Error
-        res.send('Error', error.message);
+      // Something happened in setting up the request that triggered an Error
+      console.log('something else')
+      console.log('Error', error.message);
     }
-  })
+    console.log(error.config);
+  });
 
 
 })
