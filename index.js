@@ -49,7 +49,7 @@ app.post('/form', (req, res) => {
     res.send(response.data)
     return axios({
       method: 'post',
-      url: 'https://copyblondie.bubbleapps.io/version-test/api/1.1/wf/test/',
+      url: 'https://copyblondie.bubbleapps.io/version-test/api/1.1/wf/test/initialize',
       // Scott@warcat
       headers: { 'Authorization': 'Bearer 98107ac3b7b363d93f1b9e3863b79bee' },
       data: response.data

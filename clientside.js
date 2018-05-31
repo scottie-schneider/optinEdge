@@ -54,7 +54,6 @@ if(!document.getElementById(email)){
           }
       },
       error: function( jqXhr, textStatus, errorThrown ){
-          console.log('hello error')
           console.log( errorThrown );
       }
     })
